@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-jvectormap/core": "^1.0.4",
+    "@react-jvectormap/unitedstates": "^1.0.1",
+    "apexcharts": "^3.44.0",
+    "next": "14.0.1",
+    "node": "^18.14.0",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.1"
+    "react-apexcharts": "^1.4.1",
+    "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.35",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "5.2.2"
   }
 }
