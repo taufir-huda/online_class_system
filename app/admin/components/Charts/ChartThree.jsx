@@ -99,6 +99,8 @@ const ChartThree = () => {
             options={options}
             series={state.series}
             type="donut"
+            width={700}
+            height={500}
           />
         </div>
       </div>

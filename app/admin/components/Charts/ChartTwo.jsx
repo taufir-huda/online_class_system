@@ -45,10 +45,7 @@ const options = {
       borderRadiusWhenStacked: "last",
     },
   },
-  dataLabels: {
-    enabled: false,
-  },
-
+  dataLabels: {enabled: false},
   xaxis: {
     categories: ["M", "T", "W", "T", "F", "S", "S"],
   },
@@ -70,12 +67,12 @@ const options = {
 
 
 const ChartTwo = () => {
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(
-        (newPos) => setPosition(newPos),
-        console.error
-      );
-  }, []);
+  // useEffect(() => {
+  //   window.navigator.geolocation.getCurrentPosition(
+  //       (newPos) => setPosition(newPos),
+  //       console.error
+  //     );
+  // }, []);
   const [state, setState] = useState({
     series: [
       {
@@ -140,12 +137,7 @@ const ChartTwo = () => {
 
       <div>
         <div id="chartTwo" className="-ml-5 -mb-9">
-          <ApexCharts
-            options={options}
-            series={state.series}
-            type="bar"
-            height={350}
-          />
+          <ApexCharts options={options} series={state.series}  type="bar"  height={350}   width={700} />
         </div>
       </div>
     </div>

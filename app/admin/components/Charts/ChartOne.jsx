@@ -1,10 +1,9 @@
 "use client";
-// import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
-// import dynamic from "next/dynamic";
-// const ReactApexChart = dynamic(() => import("react-apexcharts"), {
-//   ssr: false,
-// });
+import dynamic from "next/dynamic";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+   ssr: false,
+});
 
 const options = {
   legend: {
@@ -193,13 +192,13 @@ const ChartOne = () => {
 
       <div>
         <div id="chartOne" className="-ml-5 h-[355px] w-[105%]">
-          {/* <ReactApexChart
+          <ReactApexChart
             options={options}
             series={state.series}
             type="area"
             width="100%"
             height="100%"
-          />*/}
+          />
         </div>
       </div> 
     </div>

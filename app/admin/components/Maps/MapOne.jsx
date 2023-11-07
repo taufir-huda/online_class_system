@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { VectorMap } from "@react-jvectormap/core";
-import { usAea } from "@react-jvectormap/unitedstates";
+// import { VectorMap } from "@react-jvectormap/core";
+// import { usAea } from "@react-jvectormap/unitedstates";
 
 const MapOne = () => {
   return (
@@ -10,7 +10,7 @@ const MapOne = () => {
         Region labels
       </h4>
       <div id="mapOne" className="mapOne map-btn h-90">
-        <VectorMap
+        {/* <VectorMap
           map={usAea}
           backgroundColor="white"
           regionStyle={{
@@ -34,8 +34,8 @@ const MapOne = () => {
                       label.html()
                     }
                   </div>`);
-          }}
-        />
+          }} 
+        /> */}
       </div>
     </div>
   );

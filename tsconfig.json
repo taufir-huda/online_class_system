@@ -1,34 +1,28 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-, "app/admin/components/Charts/ChartOne.jsx", "app/admin/components/Charts/ChartThree.jsx", "app/admin/components/Maps/MapOne.jsx", "app/admin/components/CardDataStats.jsx", "app/admin/components/Tables/TableOne.jsx", "app/admin/components/Chat/ChatCard.jsx", "app/admin/components/Charts/ChartFour.jsx", "app/admin/components/Breadcrumbs/Breadcrumb.jsx", "app/admin/components/Checkboxes/CheckboxFive.jsx", "app/admin/components/Checkboxes/CheckboxFour.jsx", "app/admin/components/Checkboxes/CheckboxThree.jsx", "app/admin/components/Checkboxes/CheckboxTwo.jsx", "app/admin/components/common/Loader/index.jsx", "app/admin/components/Dropdowns/DropdownDefault.jsx", "app/admin/components/Header/DarkModeSwitcher.jsx", "app/admin/components/Header/DropdownMessage.jsx", "app/admin/components/Header/DropdownNotification.jsx", "app/admin/components/Header/DropdownUser.jsx", "app/admin/components/Header/index.jsx", "app/admin/components/Sidebar/index.jsx", "app/admin/components/Sidebar/SidebarLinkGroup.jsx", "app/admin/components/Switchers/SwitcherFour.jsx", "app/admin/components/Switchers/SwitcherOne.jsx", "app/admin/components/Switchers/SwitcherThree.jsx", "app/admin/components/Switchers/SwitcherTwo.jsx", "app/admin/components/DarkModeSwitcher.jsx", "app/admin/components/Tables/TableFour.jsx", "app/admin/components/Tables/TableThree.jsx", "app/admin/components/Tables/TableTwo.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Calender/index.jsx", "components/Checkboxes/CheckboxOne.jsx", "components/Dashboard/E-commerce.jsx"],
+  "exclude": ["node_modules"]
 }
