@@ -1,11 +1,10 @@
-"use client";
-import React, { useEffect , useState} from "react";
+import React from "react";
 import CardDataStats from "./components/CardDataStats.jsx";
 import ChartOne from "./components/Charts/ChartOne.jsx";
 import ChartTwo from "./components/Charts/ChartTwo.jsx";
 import ChartThree from "./components/Charts/ChartThree.jsx";
 import MapOne from './components/Maps/MapOne.jsx'
-import TableOne from "./components/Tables/TableOne.jsx";
+// import TableOne from "./components/Tables/TableOne.jsx";
 import ChatCard from "./components/Chat/ChatCard.jsx";
 
 function page() {
@@ -63,10 +62,7 @@ function page() {
         <ChartOne />
         <ChartTwo />
         <ChartThree />
-        <MapOne />
-        <div className="col-span-12 xl:col-span-8">
-          <TableOne />
-        </div>
+        {/* <MapOne /> */}
         <ChatCard />
       </div>
     </>
