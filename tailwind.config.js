@@ -23,7 +23,7 @@ module.exports = {
       bodydark1: "#DEE4EE",
       bodydark2: "#8A99AF",
       primary: "#3C50E0",
-      'indigo':{
+      indigo:{
         500:'#3b82f6',
         600:'#4f46e5',
       },

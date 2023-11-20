@@ -6,6 +6,9 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
+  institution : {
+    type: String,
+  },
   studentId:{
     type : Number,
     unique : true,
