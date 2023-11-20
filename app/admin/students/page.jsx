@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import connectToMongo from "@/db"
+// import Student from "@/models/Student"
 
 const packageData = [
   {
@@ -28,7 +30,15 @@ const packageData = [
 ];
 
 
-function page({ searchParams}) {
+async function page({ searchParams}) {
+  connectToMongo()
+  // const student = await Student.create({
+  //   name: "Mahin",
+  //   password: "hguae173y7",
+  //   email: "demo@gmail.com",
+  //   phoneNumber: "017365456965",
+  // });
+
   console.log(searchParams.id)
 
   const student={
@@ -43,8 +53,9 @@ function page({ searchParams}) {
   return(
       <div className='mx-1 border border-bl'>
         <div className='text-center text-3xl font-bold my-5'>Student Details</div>
-        <div className='flex flex-row mx-5'>
-          <div className="h-full my-auto">
+
+        <div className='flex flex-row mx-5 bg-white'>
+          <div className="h-full my-auto mx-20">
             <Image src={`/images/student/${student.Id}.jpg`} alt="Brand" width={300} height={400}   className="m-4 border-black-2 border-2"/>
           </div>
           <div className='mx-15 my-5'>
