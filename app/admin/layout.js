@@ -13,7 +13,7 @@ export default function RootLayout({children}) {
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
-    setSidebarOpen(true)
+    setSidebarOpen(!(screen.width<1024))
   }, []);
 
   return (

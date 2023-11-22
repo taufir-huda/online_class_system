@@ -2,14 +2,15 @@ import React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
 import connectToMongo from "@/db"
-import Student from "@/models/Student"
+import  teacher from "@/models/teacher"
 
 
 async function page() {
     await connectToMongo()
-    // const StudentData = await Student.find({name : /Ab/})
-    const StudentData = await Student.find({})
-    console.log(StudentData.courses==undefined)
+    // const TeacherData = await Student.find({name : /Ab/})
+    const TeacherData = await teacher.find({})
+    console.log(TeacherData, "hi")
+
     return (
       <div className="col-span-12 xl:col-span-8">
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -58,10 +59,10 @@ async function page() {
             </div>
           </div>
 
-          {StudentData.map((student, key) => (
+          {TeacherData.map((student, key) => (
             <div
               className={`grid grid-cols-2 sm:grid-cols-4 ${
-                key === StudentData.length - 1
+                key === TeacherData.length - 1
                   ? ""
                   : "border-b border-stroke dark:border-strokedark"
               }`}

@@ -31,7 +31,7 @@ const packageData = [
 
 
 async function page({ searchParams}) {
-  connectToMongo()
+  await connectToMongo()
   const StudentData = await Student.findOne({ studentId : searchParams.id})
 
   console.log(StudentData)

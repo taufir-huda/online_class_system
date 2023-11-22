@@ -5,38 +5,38 @@ import Student from "@/models/Student"
 // var Student = mongoose.model('Student')
 
 async function page() {
-//     connectToMongo()
+    connectToMongo()
 //     const student = await Student.create([       
 //         {
-//           name: "Tonmoy Saha",
+//           name: "Sadik Daian",
 //           password: "hguae173y7",
 //           phoneNumber: 88017365456965,
-//           studentId: 23002,
+//           studentId: 23006,
 //           institution: "BUET",
-//           email: "demo02@gmail.com"
+//           email: "demo06@gmail.com"
 //         },
 //         {
-//           email: "demo03@gmail.com",
-//           name: "Mahir Shahriar",
+//           email: "demo07@gmail.com",
+//           name: "Arjo Kar",
 //           password: "hguae173y7",
 //           phoneNumber: 88017365456965,
-//           studentId: 23003,
+//           studentId: 23007,
 //           institution: "BUET",
 //         },
 //         {
-//          email: "demo04@gmail.com",
-//          name: "Abul Hasnat Abdullah",
+//          email: "demo08@gmail.com",
+//          name: "Mahedi Hasan Sakib",
 //          password: "hguae173y7",
 //          phoneNumber: 88017365456965,
-//          studentId: 23004,
+//          studentId: 23008,
 //          institution: "BUET",
 //         },
 //         {
-//          email: "demo05@gmail.com",
-//           name: "Abrar Omi",
+//          email: "demo09@gmail.com",
+//           name: "Sanjoy Kumar Shuvo",
 //           password: "hguae173y7",
 //           phoneNumber: 88017365456965,
-//           studentId: 23005,
+//           studentId: 23009,
 //           institution: "BUET",
 //         },
 // ]);

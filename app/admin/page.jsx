@@ -3,6 +3,7 @@ import CardDataStats from "./components/CardDataStats.jsx";
 import ChartOne from "./components/Charts/ChartOne.jsx";
 import ChartTwo from "./components/Charts/ChartTwo.jsx";
 import ChartThree from "./components/Charts/ChartThree.jsx";
+import Notification from "./components/Notifications/notification.jsx"
 import MapOne from './components/Maps/MapOne.jsx'
 // import TableOne from "./components/Tables/TableOne.jsx";
 import ChatCard from "./components/Chat/ChatCard.jsx";
@@ -60,8 +61,9 @@ function page() {
       </div>
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
         <ChartOne />
-        <ChartTwo />
+        <Notification />
         <ChartThree />
+        {/* <ChartTwo /> */}
         {/* <MapOne /> */}
         <ChatCard />
       </div>
