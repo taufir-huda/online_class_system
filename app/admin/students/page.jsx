@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import connectToMongo from "@/db"
-// import Student from "@/models/Student"
+import Student from "@/models/Student"
 
 const packageData = [
   {
@@ -32,23 +32,9 @@ const packageData = [
 
 async function page({ searchParams}) {
   connectToMongo()
-  // const student = await Student.create({
-  //   name: "Mahin",
-  //   password: "hguae173y7",
-  //   email: "demo@gmail.com",
-  //   phoneNumber: "017365456965",
-  // });
+  const StudentData = await Student.findOne({ studentId : searchParams.id})
 
-  console.log(searchParams.id)
-
-  const student={
-    Id: 23001,
-    name: "Nasib Islam Aurko",
-    institute: "BUET",
-    courses: 5,
-    mobile: "01763545896",
-    Email: "demo@gmail.com",
-  };
+  console.log(StudentData)
 
   return(
       <div className='mx-1 border border-bl'>
@@ -56,32 +42,30 @@ async function page({ searchParams}) {
 
         <div className='flex flex-row mx-5 bg-white'>
           <div className="h-full my-auto mx-20">
-            <Image src={`/images/student/${student.Id}.jpg`} alt="Brand" width={300} height={400}   className="m-4 border-black-2 border-2"/>
+            <Image src={`/images/student/${StudentData.studentId}.jpg`} alt="Brand" width={300} height={400}   className="m-4 border-black-2 border-2"/>
           </div>
           <div className='mx-15 my-5'>
           <table className='mx-3 p-5 border-separate border-spacing-4'>
             <tr>
               <td>Name</td>         
-              <td>: {student.name}</td>
+              <td>: {StudentData.name}</td>
             </tr>
             <tr>
               <td>Student Id</td>
-              <td>:{student.Id}</td>
+              <td>:{StudentData.studentId}</td>
             </tr>
             <tr>
              <td>Mobile Number</td>
-             <td>: {student.mobile}</td>
+             <td>: {StudentData.phoneNumber}</td>
             </tr>
             <tr>
               <td>Email Address</td>
-              <td>: {student.Email}</td>
+              <td>: {StudentData.email}</td>
             </tr>
           </table>
           </div>
           
         </div>
-
-
 
 
         <div className='m-5'>

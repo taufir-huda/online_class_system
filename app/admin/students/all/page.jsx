@@ -1,60 +1,36 @@
 import React from 'react'
 import Image from "next/image";
 import Link from 'next/link';
+import connectToMongo from "@/db"
+import Student from "@/models/Student"
 
-const StudentData = [
-  {
-    Id:23001,
-    name: "Nasib Islam Aurko",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id:23002,
-    name: "Tonmoy SaHa",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id:23003,
-    name: "Mahir Shahriar",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id: 23004,
-    name: "Abul Hasnat Abdullah",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id: 23005,
-    name: "Abrar Omi",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id: 23005,
-    name: "Abrar Omi",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id: 23005,
-    name: "Abrar Omi",
-    institute: "BUET",
-    courses: 5
-  },
-  {
-    Id: 23005,
-    name: "Abrar Omi",
-    institute: "BUET",
-    courses: 5
-  },
-]
 
-function page() {
+// const StudentData = [
+//   {
+//     Id: 23005,
+//     name: "Abrar Omi",
+//     institute: "BUET",
+//     courses: 5
+//   },
+//   {
+//     Id: 23005,
+//     name: "Abrar Omi",
+//     institute: "BUET",
+//     courses: 5
+//   },
+//   {
+//     Id: 23005,
+//     name: "Abrar Omi",
+//     institute: "BUET",
+//     courses: 5
+//   },
+// ]
 
+async function page() {
+    connectToMongo()
+    // const StudentData = await Student.find({name : /Ab/})
+    const StudentData = await Student.find({})
+    console.log(StudentData.courses==undefined)
     return (
       <div className="col-span-12 xl:col-span-8">
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -72,8 +48,7 @@ function page() {
                   </svg>
                 </button>
 
-                <input type="text" placeholder="Type to search..."
-                  className="w-full bg-transparent pl-9 pr-4 font-medium focus:outline-none xl:w-125"
+                <input type="text" placeholder="Type to search..." className="w-full bg-transparent pl-9 pr-4 font-medium focus:outline-none xl:w-125" 
                 />
               </div>
             </form>
@@ -114,12 +89,12 @@ function page() {
               key={key}
             >
               <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-black dark:text-white">{student.Id}</p>
+                <p className="text-black dark:text-white">{student.studentId}</p>
               </div>
 
-              <Link href={`../students?id=${student.Id}`}  className="flex items-center gap-3 p-2.5 xl:p-5 cursor-pointer">
+              <Link href={`../students?id=${student.studentId}`}  className="flex items-center gap-3 p-2.5 xl:p-5 cursor-pointer">
                 <div className="flex-shrink-0">
-                  <Image src={`/images/student/${student.Id}.jpg`} alt="Brand" width={48} height={48} className="rounded-full"/>
+                  <Image src={`/images/student/${student.studentId}.jpg`} alt="Brand" width={48} height={48} className="rounded-full"/>
                 </div>
                 <p className="hidden text-black dark:text-white sm:block">
                   {student.name}
@@ -128,11 +103,11 @@ function page() {
 
 
               <div className="flex items-center justify-center p-2.5 xl:p-5">
-                <p className="text-meta-3">{student.institute}</p>
+                <p className="text-meta-3">{student.institution}</p>
               </div>
 
               <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-                <p className="text-black dark:text-white">{student.courses}</p>
+                <p className="text-black dark:text-white">{student.courses?Object.keys(student.course).length:0}</p>
               </div>
 
             </div>

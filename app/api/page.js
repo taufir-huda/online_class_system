@@ -5,14 +5,41 @@ import Student from "@/models/Student"
 // var Student = mongoose.model('Student')
 
 async function page() {
-    connectToMongo()
-    const student = await Student.create({
-        name: "Mahin hasan",
-        password: "hguae173y7",
-        email: "demo3@gmail.com",
-        phoneNumber: "017365456965",
-        studentId: 3,
-    });
+//     connectToMongo()
+//     const student = await Student.create([       
+//         {
+//           name: "Tonmoy Saha",
+//           password: "hguae173y7",
+//           phoneNumber: 88017365456965,
+//           studentId: 23002,
+//           institution: "BUET",
+//           email: "demo02@gmail.com"
+//         },
+//         {
+//           email: "demo03@gmail.com",
+//           name: "Mahir Shahriar",
+//           password: "hguae173y7",
+//           phoneNumber: 88017365456965,
+//           studentId: 23003,
+//           institution: "BUET",
+//         },
+//         {
+//          email: "demo04@gmail.com",
+//          name: "Abul Hasnat Abdullah",
+//          password: "hguae173y7",
+//          phoneNumber: 88017365456965,
+//          studentId: 23004,
+//          institution: "BUET",
+//         },
+//         {
+//          email: "demo05@gmail.com",
+//           name: "Abrar Omi",
+//           password: "hguae173y7",
+//           phoneNumber: 88017365456965,
+//           studentId: 23005,
+//           institution: "BUET",
+//         },
+// ]);
     
     return (
         <div>
