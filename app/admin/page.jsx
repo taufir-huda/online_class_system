@@ -1,10 +1,10 @@
 import React from "react";
 import CardDataStats from "./components/CardDataStats.jsx";
 import ChartOne from "./components/Charts/ChartOne.jsx";
-import ChartTwo from "./components/Charts/ChartTwo.jsx";
+// import ChartTwo from "./components/Charts/ChartTwo.jsx";
 import ChartThree from "./components/Charts/ChartThree.jsx";
-import Notification from "./components/Notifications/notification.jsx"
-import MapOne from './components/Maps/MapOne.jsx'
+import Notification from "./components/Notifications/Notification.jsx"
+// import MapOne from './components/Maps/MapOne.jsx'
 // import TableOne from "./components/Tables/TableOne.jsx";
 import ChatCard from "./components/Chat/ChatCard.jsx";
 
