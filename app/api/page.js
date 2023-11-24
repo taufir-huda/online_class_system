@@ -1,46 +1,49 @@
 import connectToMongo from "../../db"
 import React from 'react'
-import Student from "@/models/Student"
+import Course from "../../models/course"
 // var mongoose = require('mongoose');
 // var Student = mongoose.model('Student')
 
 async function page() {
     connectToMongo()
-//     const student = await Student.create([       
-//         {
-//           name: "Sadik Daian",
-//           password: "hguae173y7",
-//           phoneNumber: 88017365456965,
-//           studentId: 23006,
-//           institution: "BUET",
-//           email: "demo06@gmail.com"
-//         },
-//         {
-//           email: "demo07@gmail.com",
-//           name: "Arjo Kar",
-//           password: "hguae173y7",
-//           phoneNumber: 88017365456965,
-//           studentId: 23007,
-//           institution: "BUET",
-//         },
-//         {
-//          email: "demo08@gmail.com",
-//          name: "Mahedi Hasan Sakib",
-//          password: "hguae173y7",
-//          phoneNumber: 88017365456965,
-//          studentId: 23008,
-//          institution: "BUET",
-//         },
-//         {
-//          email: "demo09@gmail.com",
-//           name: "Sanjoy Kumar Shuvo",
-//           password: "hguae173y7",
-//           phoneNumber: 88017365456965,
-//           studentId: 23009,
-//           institution: "BUET",
-//         },
+//     const courses = await Course.create([       
+//     {
+//       shorttitle: "pre-eng-25",
+//       shortdescription: `<h3><span></span></h3><ul style="list-style-type:disc"><li>বোর্ড বইয়ের অনুশীলনী MCQ প্রশ্নব্যাংক ৫টি</li><li>১০৫টি&nbsp;স্মার্টবোর্ড&nbspলাইভ ক্লাস (সকল বিষয়)</li><li>১০৫টি লাইভ MCQ এক্সাম (সকল বিষয়)</li><li>মেডিকেল, ইঞ্জিনিয়ারিং, ভার্সিটি ‘ক’ আলাদা প্রি-এডমিশন ক্লাস-পরীক্ষা</li><li>ডাউট সলভিংয়ে সার্বক্ষণিক Q&amp;A সার্ভিস</li><li>শুরু: ১৩ জানুয়ারি, ২০২৪ (সম্ভাব্য)</li></ul>`,
+//       title: "ফাইনাল রিভিশন কোর্স &amp; প্রি-এডমিশন কোর্স",
+//       courseId: 101,
+//       State: "past",
+//     },
+//     {
+//         shorttitle: "pre-eng-24",
+//         shortdescription: `<h3><span></span></h3><ul style="list-style-type:disc"><li>বোর্ড বইয়ের অনুশীলনী MCQ প্রশ্নব্যাংক ৫টি</li><li>১০৫টি&nbsp;স্মার্টবোর্ড&nbspলাইভ ক্লাস (সকল বিষয়)</li><li>১০৫টি লাইভ MCQ এক্সাম (সকল বিষয়)</li><li>মেডিকেল, ইঞ্জিনিয়ারিং, ভার্সিটি ‘ক’ আলাদা প্রি-এডমিশন ক্লাস-পরীক্ষা</li><li>ডাউট সলভিংয়ে সার্বক্ষণিক Q&amp;A সার্ভিস</li><li>শুরু: ১৩ জানুয়ারি, ২০২৪ (সম্ভাব্য)</li></ul>`,
+//         title: "ফাইনাল রিভিশন কোর্স &amp; প্রি-এডমিশন কোর্স",
+//         courseId: 102,
+//         State: "past",
+//     },
+//     {
+//         shorttitle: "pre-eng-23",
+//         shortdescription: `<h3><span></span></h3><ul style="list-style-type:disc"><li>বোর্ড বইয়ের অনুশীলনী MCQ প্রশ্নব্যাংক ৫টি</li><li>১০৫টি&nbsp;স্মার্টবোর্ড&nbspলাইভ ক্লাস (সকল বিষয়)</li><li>১০৫টি লাইভ MCQ এক্সাম (সকল বিষয়)</li><li>মেডিকেল, ইঞ্জিনিয়ারিং, ভার্সিটি ‘ক’ আলাদা প্রি-এডমিশন ক্লাস-পরীক্ষা</li><li>ডাউট সলভিংয়ে সার্বক্ষণিক Q&amp;A সার্ভিস</li><li>শুরু: ১৩ জানুয়ারি, ২০২৪ (সম্ভাব্য)</li></ul>`,
+//         title: "ফাইনাল রিভিশন কোর্স &amp; প্রি-এডমিশন কোর্স",
+//         courseId: 103,
+//         State: "upcomming",
+//     },
+//     {
+//         shorttitle: "pre-eng-26",
+//         shortdescription: `<h3><span></span></h3><ul style="list-style-type:disc"><li>বোর্ড বইয়ের অনুশীলনী MCQ প্রশ্নব্যাংক ৫টি</li><li>১০৫টি&nbsp;স্মার্টবোর্ড&nbspলাইভ ক্লাস (সকল বিষয়)</li><li>১০৫টি লাইভ MCQ এক্সাম (সকল বিষয়)</li><li>মেডিকেল, ইঞ্জিনিয়ারিং, ভার্সিটি ‘ক’ আলাদা প্রি-এডমিশন ক্লাস-পরীক্ষা</li><li>ডাউট সলভিংয়ে সার্বক্ষণিক Q&amp;A সার্ভিস</li><li>শুরু: ১৩ জানুয়ারি, ২০২৪ (সম্ভাব্য)</li></ul>`,
+//         title: "ফাইনাল রিভিশন কোর্স &amp; প্রি-এডমিশন কোর্স",
+//         courseId: 104,
+//         State: "upcomming",
+//     },
+//     {
+//         shorttitle: "pre-eng-27",
+//         shortdescription: `<h3><span></span></h3><ul style="list-style-type:disc"><li>বোর্ড বইয়ের অনুশীলনী MCQ প্রশ্নব্যাংক ৫টি</li><li>১০৫টি&nbsp;স্মার্টবোর্ড&nbspলাইভ ক্লাস (সকল বিষয়)</li><li>১০৫টি লাইভ MCQ এক্সাম (সকল বিষয়)</li><li>মেডিকেল, ইঞ্জিনিয়ারিং, ভার্সিটি ‘ক’ আলাদা প্রি-এডমিশন ক্লাস-পরীক্ষা</li><li>ডাউট সলভিংয়ে সার্বক্ষণিক Q&amp;A সার্ভিস</li><li>শুরু: ১৩ জানুয়ারি, ২০২৪ (সম্ভাব্য)</li></ul>`,
+//         title: "ফাইনাল রিভিশন কোর্স &amp; প্রি-এডমিশন কোর্স",
+//         courseId: 105,
+//         State: "current",
+//     },
 // ]);
-    
+
     return (
         <div>
             jshauyuiqfhui 
