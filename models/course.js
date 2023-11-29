@@ -5,15 +5,15 @@ const CourseSchema = new Schema({
     shorttitle: {
         type: String,
         required: true,
+        unique : true,
     },
     title : {
         type: String,
         required: true,
     },
-    courseId:{
+    courseFee:{
         type : Number,
-        unique : true,
-        default : 1,
+        required : true,
     },
     shortdescription: {
         type: String,
@@ -24,6 +24,7 @@ const CourseSchema = new Schema({
     },
     State: {
         type : String,
+        default : "upcomming",
     }
 });
 
