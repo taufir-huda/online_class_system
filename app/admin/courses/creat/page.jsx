@@ -1,70 +1,36 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker"; 
-
-const options = {
-	title: "Demo Title",
-	autoHide: true,
-	todayBtn: false,
-	clearBtn: true,
-	clearBtnText: "Clear",
-	maxDate: new Date("2030-01-01"),
-	minDate: new Date("1950-01-01"),
-	theme: {
-		background: "bg-gray-700 dark:bg-gray-800",
-		todayBtn: "",
-		clearBtn: "",
-		icons: "",
-		text: "",
-		disabledText: "bg-red-500",
-		input: "",
-		inputIcon: "",
-		selected: "",
-	},
-	icons: {
-		// () => ReactElement | JSX.Element
-		prev: () => <span>Previous</span>,
-		next: () => <span>Next</span>,
-	},
-	datepickerClassNames: "top-12",
-	defaultDate: new Date("2022-01-01"),
-	language: "en",
-	disabledDates: [],
-	weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-	inputNameProp: "date",
-	inputIdProp: "date",
-	inputPlaceholderProp: "Select Date",
-	inputDateFormatProp: {
-		day: "numeric",
-		month: "long",
-		year: "numeric"
-	}
-}
 
 export default function Example() {
     const [value, setValue] = useState({ 
         startDate: new Date(), 
-        endDate: new Date().setMonth(11) 
-        }); 
+    }); 
         
-        const handleValueChange = (newValue) => {
+    const handleValueChange = (newValue) => {
         console.log("newValue:", newValue); 
         setValue(newValue); 
-        }         
+        setcourse({...course,Startingdate:newValue.startDate})
+    }     
+
     const [course,setcourse]=useState({
         shorttitle: "",
         title: "",
         courseFee: "",
         shortdescription: "",
+        details:"",
         Startingdate: "",
     });
 
+    useEffect(() => {
+      console.log(course)
+    }, [course])
+    
   const onSubmit= async (e) => {
     e.preventDefault();
     console.log(user);
   }
-
   return (
         <div className="w-full flex flex-wrap mx-auto px-2">
 
@@ -93,7 +59,9 @@ export default function Example() {
                             className="form-input block w-full focus:bg-white" type="text" 
                             value={course.title}
                             onChange={(e) => {setcourse({...course,title:e.target.value})}} />
-                        <p className="py-2 text-sm text-gray-600">add a long title for the course</p>
+                        <p className="py-2 text-sm text-gray-600">
+                            add a long title for the course. You can write in bangla
+                        </p>
                     </div>
                 </div>
 
@@ -105,8 +73,11 @@ export default function Example() {
                         </div>
                         <div className="md:w-2/3">
                             <input 
+                                maxLength={10}
                                 className="form-input block w-full focus:bg-white"
                                 type="text" 
+                                value={course.shorttitle}
+                                onChange={(e) => {setcourse({...course,shorttitle:e.target.value})}}
                             />
                             <p className="py-2 text-sm text-gray-600">add a long title for the course ( must be unique)</p>
                         </div>
@@ -140,7 +111,7 @@ export default function Example() {
                             </label>
                         </div>
                         <div className="md:w-2/3">
-                            <textarea className="form-textarea block w-full focus:bg-white" value="" rows="8"></textarea>
+                            <textarea className="form-textarea block w-full focus:bg-white" value={course.shortdescription} rows="8" onChange={(e) => {setcourse({...course,shortdescription:e.target.value})}}></textarea>
                             <p className="py-2 text-sm text-gray-600">Write a short description for the course so that student get know about the course at glance</p>
                         </div>
                     </div>
@@ -152,7 +123,7 @@ export default function Example() {
                             </label>
                         </div>
                         <div className="md:w-2/3">
-                            <textarea className="form-textarea block w-full focus:bg-white" value="" rows="8"></textarea>
+                            <textarea className="form-textarea block w-full focus:bg-white" value={course.details} rows="20" onChange={(e) => {setcourse({...course,details:e.target.value})}}></textarea>
                             <p className="py-2 text-sm text-gray-600">
                                 Write all the information, benefits, necessity for doing the course in details
                             </p>
@@ -199,8 +170,8 @@ export default function Example() {
                         <div className="md:w-2/3">
                             <input 
                                 className="form-input block w-full focus:bg-white" type="number" 
-                                value={course.Fees}
-                                onChange={(e) => {setcourse({...course,Fees:e.target.value})}} />
+                                value={course.courseFee}
+                                onChange={(e) => {setcourse({...course,courseFee:e.target.value})}} />
                             <p className="py-2 text-sm text-gray-600">
                                 add the amount needed to buy the course
                             </p>

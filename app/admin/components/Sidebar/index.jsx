@@ -113,17 +113,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                       <div  className={`translate transform overflow-hidden ${!open && "hidden"}`}>
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                           <li>
-                            <Link  href="../../admin/courses/current"  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${  pathname === "/" && "text-white"  } `}>
+                            <Link  href="../../../admin/courses/current"  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${  pathname === "/" && "text-white"  } `}>
                               Current Courses
                             </Link>
                           </li>
                           <li>
-                            <Link  href="../../admin/courses/upcoming"  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${  pathname === "/" && "text-white"  } `}>
+                            <Link  href="../../../admin/courses/upcoming"  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${  pathname === "/" && "text-white"  } `}>
                               Upcoming Courses
                             </Link>
                           </li>
                           <li>
-                            <Link  href="../../admin/courses/past"  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${  pathname === "/" && "text-white"  } `}>
+                            <Link  href="../../../admin/courses/past"  className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${  pathname === "/" && "text-white"  } `}>
                               Past Courses
                             </Link>
                           </li>

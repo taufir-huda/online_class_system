@@ -19,6 +19,10 @@ const CourseSchema = new Schema({
         type: String,
         required : true,
     },
+    details: {
+        type: String,
+        required : true,
+    },
     Startingdate: {
         type: Date,
     },
