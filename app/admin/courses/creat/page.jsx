@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker"; 
+import axios from "axios"
 
 export default function Example() {
     const [value, setValue] = useState({ 
@@ -26,11 +27,24 @@ export default function Example() {
     useEffect(() => {
       console.log(course)
     }, [course])
-    
-  const onSubmit= async (e) => {
+
+const onSubmit = async(e) => {
     e.preventDefault();
-    console.log(user);
-  }
+    // setLoading(true);
+    try{
+        const response = await axios.post("/api/creatcourse", course);
+        // if(response.status === 200){
+            // router.push("/login");     
+        // }    
+    }
+    catch(error){
+      console.log("error", error);    
+    }
+    finally{
+        // setLoading(false);
+    }
+};
+
   return (
         <div className="w-full flex flex-wrap mx-auto px-2">
 
@@ -73,7 +87,7 @@ export default function Example() {
                         </div>
                         <div className="md:w-2/3">
                             <input 
-                                maxLength={10}
+                                maxLength={15}
                                 className="form-input block w-full focus:bg-white"
                                 type="text" 
                                 value={course.shorttitle}
@@ -81,15 +95,6 @@ export default function Example() {
                             />
                             <p className="py-2 text-sm text-gray-600">add a long title for the course ( must be unique)</p>
                         </div>
-                </div>
-                
-                <div className="md:flex md:items-center">
-                    <div className="md:w-1/3"></div>
-                    <div className="md:w-2/3">
-                        <button className="shadow bg-meta-8 hover:bg-meta-6 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"type="button">
-                            Save
-                        </button>
-                    </div>
                 </div>
 
             </form>
@@ -130,14 +135,6 @@ export default function Example() {
                         </div>
                     </div>
 
-                    <div className="md:flex md:items-center">
-                        <div className="md:w-1/3"></div>
-                        <div className="md:w-2/3">
-                            <button className="shadow bg-meta-8 hover:bg-meta-6 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"type="button">
-                                Save
-                            </button>
-                        </div>
-                    </div>
                 </form>
 
             </div>
@@ -177,15 +174,6 @@ export default function Example() {
                             </p>
                         </div>
                     </div>
-
-                    <div className="md:flex md:items-center">
-                        <div className="md:w-1/3"></div>
-                        <div className="md:w-2/3">
-                            <button className="shadow bg-meta-8 hover:bg-meta-6 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"type="button">
-                                Save
-                            </button>
-                        </div>
-                    </div>
                 </form>
 
             </div>
@@ -194,7 +182,7 @@ export default function Example() {
 
             </div>
 
-            <div className="w-full h-10 text-2xl text-gray-600 text-yellow-600 rounded-lg text-center m-auto bg-indigo-500 cursor-pointer">
+            <div className="w-full h-10 text-2xl text-gray-600 text-yellow-600 hover:rounded-lg text-center m-auto bg-indigo-500 cursor-pointer" onClick={onSubmit}>
                 Creat Course
             </div>
 
