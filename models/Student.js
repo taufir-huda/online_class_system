@@ -11,11 +11,6 @@ const StudentSchema = new Schema({
   },
   studentId:{
     type : Number,
-    unique : true,
-    default : 1,
-  },
-    email: {
-    type: String,
     unique: true,
   },
   password: {
@@ -32,6 +27,7 @@ const StudentSchema = new Schema({
   },
   courses:{
     type: Object,
+    default: {},
   }
 });
 
