@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Example() {
+export default function login() {
   const [user, setUser] = useState({
     studentID:"",
     pass: "",

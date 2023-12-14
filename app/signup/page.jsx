@@ -1,23 +1,32 @@
-"use client"
+"use client";
 
+import axios from "axios";
 import { useState } from "react";
 
-
-export default function Example() {
-
-  const [user,setUser]=useState({
+export default function signup() {
+  const [user, setUser] = useState({
     name: "",
     institution: "",
-    email:"",
-    phone:"",
-    pass:"",
-    confirmPass:"",
+    phone: "",
+    pass: "",
+    confirmPass: "",
   });
 
-  const onSubmit= async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
-  }
+    if (user.confirmPass != user.pass){
+      alert("Passwords didn't match");
+      return;
+    }
+    try {
+      const response = await axios.post("../api/signup/", user);
+      if (response.status === 200) {
+        console.log("registered");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -32,7 +41,7 @@ export default function Example() {
           <form className="space-y-6" action="#" method="POST">
             <div>
               <label
-                htmlFor="Name"
+                htmlFor="name"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Full Name
@@ -45,7 +54,9 @@ export default function Example() {
                   required
                   autoComplete="name"
                   value={user.name}
-                  onChange={(e) => {setUser({...user,name:e.target.value})}}
+                  onChange={(e) => {
+                    setUser({ ...user, name: e.target.value });
+                  }}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -65,31 +76,14 @@ export default function Example() {
                   required
                   autoComplete="institution"
                   value={user.institution}
-                  onChange={(e) => {setUser({...user,institution:e.target.value})}}
+                  onChange={(e) => {
+                    setUser({ ...user, institution: e.target.value });
+                  }}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email address (Optional)
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  value={user.email}
-                  onChange={(e) => {setUser({...user,email:e.target.value})}}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
+            
             <div>
               <label
                 htmlFor="phone"
@@ -101,10 +95,12 @@ export default function Example() {
                 <input
                   id="phone"
                   name="phone"
-                  type="tel"
+                  type="number"
                   autoComplete="phone"
                   value={user.phone}
-                  onChange={(e) => {setUser({...user,phone:e.target.value})}}
+                  onChange={(e) => {
+                    setUser({ ...user, phone: e.target.value });
+                  }}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -112,12 +108,12 @@ export default function Example() {
             </div>
 
             <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Password
+              </label>
               <div className="mt-2">
                 <input
                   id="password"
@@ -125,19 +121,21 @@ export default function Example() {
                   type="password"
                   autoComplete="current-password"
                   value={user.pass}
-                  onChange={(e) => {setUser({...user,pass:e.target.value})}}
+                  onChange={(e) => {
+                    setUser({ ...user, pass: e.target.value });
+                  }}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
             <div>
-                <label
-                  htmlFor="confirmPassword"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Confirm Password
-                </label>
+              <label
+                htmlFor="confirmPassword"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Confirm Password
+              </label>
               <div className="mt-2">
                 <input
                   id="confirmPassword"
@@ -145,7 +143,9 @@ export default function Example() {
                   type="password"
                   autoComplete="confirmPassword"
                   value={user.confirmPass}
-                  onChange={(e) => {setUser({...user,confirmPass:e.target.value})}}
+                  onChange={(e) => {
+                    setUser({ ...user, confirmPass: e.target.value });
+                  }}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
