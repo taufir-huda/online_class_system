@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Calender/index.jsx", "components/Checkboxes/CheckboxOne.jsx", "components/Dashboard/E-commerce.jsx", "app/admin/components/auth/signin/page.jsx", "app/admin/components/auth/signup/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Calender/index.jsx", "components/Checkboxes/CheckboxOne.jsx", "components/Dashboard/E-commerce.jsx", "app/admin/components/auth/signin/page.jsx", "app/admin/components/auth/signup/page.jsx", "app/admin/components/Sidebar/SidebarLinkGroup.jsx"],
   "exclude": ["node_modules"]
 }
